@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.learning</groupId>
+	<artifactId>OnlyEat</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>OnlyEat!</name>
+	<url>https://github.com/maryalcazar</url>
+	<properties>
+		<spring-version>2.1.5.RELEASE</spring-version>
+	</properties>
+	<dependencies>
+		<!-- Spring Boot: Core del Framework -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-parent</artifactId>
+			<version>${spring-version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<!-- Spring Boot: Spring JPA & Spring Data -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<!-- Spring Boot - Desactivar Tomcat Embebido -->
+		<!-- Descomentar para evitar el uso del Tomcat Embebido de Spring Boot -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.boot</groupId> -->
+		<!-- <artifactId>spring-boot-starter-tomcat</artifactId> -->
+		<!-- <version>${spring-version}</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+		
+		<!-- Motor de vistas/plantillas -->
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>${spring-version}</version>
+	    </dependency>
+		
+		<!-- H2 Database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.196</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<!-- Permite generar un JAR y un WAR al hacer mvn package/install/deploy -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<finalName>OnlyEat</finalName>
+	</build>
+</project>
